@@ -1,9 +1,8 @@
-/* Basic Reset */
+/* Reset */
 * {
   box-sizing: border-box;
 }
 
-/* Body */
 body, html {
   margin: 0;
   padding: 0;
@@ -13,24 +12,22 @@ body, html {
   color: white;
 }
 
-/* Centered Login */
 .centered-screen {
+  align-items: center;
   display: flex;
+  flex-direction: column;
   height: 100vh;
   justify-content: center;
-  align-items: center;
   text-align: center;
-  flex-direction: column;
 }
 
-/* Login Box */
 .login-box {
-  background: rgba(255 255 255 / 0.15);
-  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
-  box-shadow: 0 16px 32px rgb(0 0 0 / 0.15);
-  width: 320px;
-  max-width: 90vw;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+  max-width: 320px;
+  padding: 40px 30px;
+  width: 90vw;
 }
 
 .icon-goat {
@@ -39,35 +36,37 @@ body, html {
 }
 
 .title {
-  font-weight: 700;
   font-size: 28px;
+  font-weight: 700;
   margin: 0 0 5px;
   color: white;
 }
 
 .year {
-  font-size: 14px;
-  margin-bottom: 20px;
   color: #ddd;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
 .btn-fingerprint, .btn-login {
-  width: 100%;
-  border-radius: 12px;
-  padding: 14px 0;
-  font-weight: 600;
-  font-size: 16px;
   border: none;
+  border-radius: 12px;
   cursor: pointer;
-  user-select: none;
+  font-size: 16px;
+  font-weight: 600;
   margin-bottom: 16px;
-  transition: background-color 0.25s ease;
+  padding: 14px 0;
+  user-select: none;
+  width: 100%;
+  transition: background-color 0.3s;
 }
+
 .btn-fingerprint {
   background-color: #1e90ff;
   color: white;
 }
-.btn-fingerprint:hover, .btn-fingerprint:focus {
+.btn-fingerprint:hover,
+.btn-fingerprint:focus {
   background-color: #187bdb;
   outline: none;
 }
@@ -76,214 +75,205 @@ body, html {
   background-color: #1a6b3c;
   color: white;
 }
-.btn-login:hover, .btn-login:focus {
+.btn-login:hover,
+.btn-login:focus {
   background-color: #14532d;
   outline: none;
 }
 
 #pinInput {
-  width: 100%;
-  font-size: 30px;
-  letter-spacing: 20px;
-  padding: 10px 0;
+  background-color: rgba(255,255,255,0.25);
+  border: 2px solid #ddd;
   border-radius: 12px;
-  border: 2px solid rgba(255 255 255 / 0.5);
-  background: rgba(255 255 255 / 0.2);
   color: white;
-  text-align: center;
+  font-size: 30px;
+  letter-spacing: 18px;
   margin-bottom: 10px;
-  user-select: all;
   outline: none;
+  padding: 10px 0;
+  text-align: center;
+  user-select: all;
+  width: 100%;
 }
-#pinInput::placeholder {
-  letter-spacing: 10px;
-}
-
 .label-pin {
+  color: #eee;
+  font-weight: 600;
   font-size: 12px;
-  margin-bottom: 14px;
-  color: #ccc;
-  font-weight: 600;
+  margin-bottom: 24px;
 }
-
 .login-status {
-  min-height: 24px;
-  margin-top: 8px;
-  font-weight: 600;
   color: #ff6688;
+  font-weight: 600;
+  margin-top: 8px;
+  min-height: 24px;
   user-select: none;
 }
 
-/* Dashboard */
 .dashboard-main {
-  max-width: 1100px;
   margin: 20px auto;
-  padding: 0 15px 80px;
+  max-width: 1100px;
+  padding: 0 15px 80px 15px;
   min-height: 80vh;
+  color: white;
 }
 
 .dashboard-header {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 30px;
 }
 
 .dashboard-header h2 {
   font-weight: 700;
-  font-size: 28px;
-  color: white;
 }
 
 .user-name {
-  font-weight: 600;
   margin-right: 15px;
+  font-weight: 600;
 }
 
 .btn-logout {
-  padding: 10px 30px;
-  border-radius: 20px;
-  background-color: #ff3b30;
+  background-color: #f44336;
   border: none;
+  border-radius: 20px;
   color: white;
-  font-weight: 700;
   cursor: pointer;
-  user-select: none;
   font-size: 16px;
-  transition: background-color 0.25s ease;
+  font-weight: 700;
+  padding: 10px 30px;
+  user-select: none;
+  transition: background-color 0.3s;
 }
 
-.btn-logout:hover, .btn-logout:focus {
-  background-color: #d12d25;
+.btn-logout:hover,
+.btn-logout:focus {
+  background-color: #d32f2f;
   outline: none;
 }
 
-/* Statistik Section */
 .stats-grid {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
-  margin-bottom: 30px;
+  gap: 20px;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .stats-grid > div {
-  background: rgba(255 255 255 / 0.15);
-  padding: 20px;
+  background: rgba(255,255,255,0.15);
   border-radius: 16px;
-  min-width: 160px;
-  text-align: center;
   flex: 1 1 180px;
+  min-width: 160px;
+  padding: 20px;
+  text-align: center;
   user-select: none;
 }
 
 .stats-grid h3 {
-  margin: 0 0 10px;
-  font-weight: 700;
   font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .stats-grid p {
-  margin: 0;
-  font-weight: 600;
   font-size: 24px;
+  font-weight: 600;
+  margin: 0;
 }
 
-/* Filter Section */
 .filter-section {
   margin-bottom: 20px;
-  text-align: left;
   max-width: 300px;
-  user-select: none;
 }
 
-.filter-section label, .filter-section select {
+.filter-section label,
+.filter-section select {
   color: white;
   font-weight: 600;
   font-size: 16px;
 }
 
 .filter-section select {
+  background-color: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   margin-left: 10px;
   padding: 6px 10px;
-  border-radius: 8px;
-  border: none;
-  background-color: rgba(255 255 255 / 0.15);
-  color: white;
-  font-weight: normal;
-  cursor: pointer;
 }
 
-/* Siswa Table */
 .siswa-table {
-  width: 100%;
   border-collapse: collapse;
   color: white;
+  width: 100%;
   user-select: text;
 }
-.siswa-table th, .siswa-table td {
-  padding: 14px 16px;
-  border-bottom: 1px solid rgba(255 255 255 / 0.1);
-  font-size: 14px;
-}
-.siswa-table th {
+
+.siswa-table thead tr {
   background: #574fc3;
-  font-weight: 600;
-  text-align: left;
 }
+
+.siswa-table th,
 .siswa-table td {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 14px;
+  padding: 14px 16px;
+  text-align: left;
   vertical-align: middle;
+}
+
+.siswa-table td[style*="text-align:right"] {
+  text-align: right;
 }
 
 .status-lunas {
   background-color: #4caf50;
-  padding: 6px 16px;
   border-radius: 20px;
   color: white;
   font-weight: 600;
+  padding: 6px 16px;
   text-align: center;
   width: 90px;
 }
 
 .status-belum {
   background-color: #ff9800;
-  padding: 6px 16px;
   border-radius: 20px;
   color: white;
   font-weight: 600;
+  padding: 6px 16px;
   text-align: center;
   width: 90px;
 }
 
-/* Button Aksi Tabungan */
 .btn-tambah-tabungan {
   background-color: #2196f3;
   border: none;
   border-radius: 12px;
   color: white;
-  padding: 6px 12px;
   cursor: pointer;
-  font-weight: 600;
   font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
   user-select: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
+
 .btn-tambah-tabungan:hover {
   background-color: #1769aa;
 }
 
-/* Modal */
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(6px);
+  align-items: center;
   background: rgba(0,0,0,0.4);
   display: none;
-  align-items: center;
+  height: 100vh;
   justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
   z-index: 9999;
 }
 
@@ -293,61 +283,62 @@ body, html {
 
 .modal-content {
   background: #3f51b5;
-  padding: 30px 32px;
   border-radius: 20px;
-  width: 360px;
-  max-width: 90vw;
-  color: white;
   box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+  color: white;
+  max-width: 360px;
+  padding: 30px 32px;
+  width: 90vw;
 }
 
 .modal-content h3 {
-  margin-top: 0;
-  margin-bottom: 20px;
   font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .modal-content label {
   display: block;
-  margin-bottom: 4px;
   font-weight: 600;
+  margin-bottom: 4px;
 }
 
-.modal-content input[type="number"], 
-.modal-content select, 
+.modal-content input[type="number"],
+.modal-content select,
 .modal-content textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 10px;
+  background: rgba(255,255,255,0.15);
   border: none;
-  font-size: 16px;
-  margin-bottom: 18px;
-  background: rgba(255 255 255 / 0.15);
+  border-radius: 10px;
   color: white;
+  font-size: 16px;
   font-weight: 500;
-  resize: vertical;
+  margin-bottom: 18px;
   outline: none;
+  padding: 10px 12px;
+  resize: vertical;
+  width: 100%;
 }
 
 .modal-actions {
   text-align: right;
 }
 
-.btn-secondary, .btn-primary {
-  padding: 12px 24px;
-  border-radius: 20px;
-  font-weight: 700;
-  cursor: pointer;
+.btn-secondary,
+.btn-primary {
   border: none;
-  margin-left: 16px;
-  user-select: none;
+  border-radius: 20px;
+  cursor: pointer;
   font-size: 14px;
+  font-weight: 700;
+  margin-left: 16px;
+  padding: 12px 24px;
+  user-select: none;
 }
 
 .btn-secondary {
   background-color: #9fa8da;
   color: #1a237e;
 }
+
 .btn-secondary:hover {
   background-color: #7986cb;
 }
@@ -356,6 +347,17 @@ body, html {
   background-color: #ff5722;
   color: white;
 }
+
 .btn-primary:hover {
   background-color: #e64a19;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .stats-grid {
+    flex-direction: column;
+  }
 }
