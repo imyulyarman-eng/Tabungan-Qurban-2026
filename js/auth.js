@@ -14,6 +14,7 @@ class QurbanAuth {
     document.getElementById("pinInput").addEventListener("keypress", (e) => {
       if (e.key === "Enter") this.doPinLogin();
     });
+
     const logoutBtn = document.getElementById("logoutBtn");
     if (logoutBtn) logoutBtn.addEventListener("click", () => this.logout());
 
@@ -48,7 +49,6 @@ class QurbanAuth {
     status.textContent = "Memverifikasi PIN...";
     status.className = "login-status";
 
-    // Gunakan validasi PIN lokal
     if (pin === CONFIG.LOGIN_PIN) {
       this.setSession();
       this.showApp();
@@ -103,7 +103,6 @@ class QurbanAuth {
 
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    // Simulasi: fingerprint terhubung ke PIN default
     if (CONFIG.LOGIN_PIN === "2512") {
       this.setSession();
       this.showApp();
@@ -113,6 +112,4 @@ class QurbanAuth {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  new QurbanAuth();
-});
+window.addEventListener("DOMContentLoaded", () => new QurbanAuth());

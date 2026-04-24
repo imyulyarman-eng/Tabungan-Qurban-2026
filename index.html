@@ -7,37 +7,102 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="login-container" id="loginScreen" role="main">
-    <div class="login-card" role="form" aria-labelledby="formTitle">
+  <!-- LOGIN SCREEN -->
+  <section id="loginScreen" class="centered-screen">
+    <div class="login-box" role="form" aria-label="Form Login Tabungan Qurban">
       <div class="icon-goat" aria-hidden="true">🐐</div>
-      <h1 class="title" id="formTitle">Tabungan Qurban</h1>
+      <h1 class="title">Tabungan Qurban</h1>
       <small class="year">2025</small>
 
-      <button id="fingerprintBtn" class="btn-fingerprint" type="button" aria-label="Login dengan fingerprint" style="display:none;">👆 Fingerprint</button>
+      <button id="fingerprintBtn" class="btn-fingerprint" type="button" title="Login dengan fingerprint" style="display:none;">
+        👆 Fingerprint
+      </button>
 
       <input
-        type="password"
         id="pinInput"
+        type="password"
         maxlength="4"
         placeholder="• • • •"
-        autocomplete="one-time-code"
         inputmode="numeric"
         pattern="\d*"
-        aria-required="true"
-        aria-describedby="pinHint"
+        autocomplete="one-time-code"
+        aria-label="Input PIN 4 digit"
       />
-      <div class="label-pin" id="pinHint">Masukkan PIN 4 digit</div>
 
-      <button id="loginBtn" class="btn-login" aria-label="Login dengan PIN">Masuk</button>
+      <div class="label-pin">Masukkan PIN 4 digit</div>
 
-      <div id="loginStatus" class="login-status" aria-live="polite" aria-atomic="true"></div>
+      <button id="loginBtn" class="btn-login" aria-label="Tombol Login PIN">Masuk</button>
+
+      <div id="loginStatus" class="login-status" role="alert" aria-live="assertive"></div>
     </div>
-  </div>
+  </section>
 
-  <main id="mainApp" style="display: none;">
-    <h2>Selamat datang di Dashboard Tabungan Qurban</h2>
-    <button id="logoutBtn" class="btn-logout" aria-label="Logout aplikasi">Logout</button>
-    <!-- Konten dashboard bisa dikembangkan -->
+  <!-- DASHBOARD -->
+  <main id="mainApp" style="display:none;" role="main" class="dashboard-main">
+    <header class="dashboard-header">
+      <h2>Dashboard Tabungan Qurban 2025</h2>
+      <div>
+        <span id="userName" class="user-name" aria-label="Nama pengguna">Admin</span>
+        <button id="logoutBtn" class="btn-logout" aria-label="Logout aplikasi">Logout</button>
+      </div>
+    </header>
+
+    <section id="stats" class="stats-grid" aria-label="Statistik Tabungan Qurban">
+      <!-- Statistik cards muncul disini -->
+    </section>
+
+    <section class="filter-section" aria-label="Filter kelas siswa">
+      <label for="kelasFilter">Filter Kelas:</label>
+      <select id="kelasFilter" aria-controls="siswaTable">
+        <option value="">Semua Kelas</option>
+      </select>
+    </section>
+
+    <section class="table-section" aria-label="Daftar siswa">
+      <table id="siswaTable" class="siswa-table" aria-describedby="tableDesc">
+        <caption id="tableDesc">Daftar siswa beserta status tabungan qurban</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Kelas</th>
+            <th scope="col">Jenis Hewan</th>
+            <th scope="col" style="text-align:right;">Target (Rp)</th>
+            <th scope="col" style="text-align:right;">Total Tabungan (Rp)</th>
+            <th scope="col" style="text-align:right;">Sisa (Rp)</th>
+            <th scope="col" style="text-align:center;">Status</th>
+            <th scope="col" style="text-align:center;">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data siswa muncul di sini -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Modal Tambah Tabungan -->
+    <div id="modalTambahTabungan" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+      <div class="modal-content">
+        <h3 id="modalTitle">Tambah Tabungan</h3>
+        <form id="formTambahTabungan">
+          <input type="hidden" id="idSiswaTabungan" />
+          <label for="jumlahSetoran">Jumlah Setoran (Rp):</label>
+          <input type="number" id="jumlahSetoran" min="1" required />
+          <label for="metodePembayaran">Metode Pembayaran:</label>
+          <select id="metodePembayaran">
+            <option value="Tunai">Tunai</option>
+            <option value="Transfer">Transfer</option>
+            <option value="QRIS">QRIS</option>
+          </select>
+          <label for="keteranganSetoran">Keterangan (opsional):</label>
+          <textarea id="keteranganSetoran" rows="3" placeholder="Masukkan keterangan"></textarea>
+          <div class="modal-actions">
+            <button type="button" id="btnCancel" class="btn-secondary">Batal</button>
+            <button type="submit" class="btn-primary">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
 
   <script src="js/config.js"></script>
